@@ -14,8 +14,8 @@ class State(TypedDict):
 
 def node1(state: State):
     print("Executing First Node...")
-    name = input("\n Enter the user's name: \n")
-    return {"name": name, "message": f"Hello {name}!"}
+
+    return {"message": f"Hello {state['name']}!"}
 
 
 # Define node 1
@@ -50,7 +50,7 @@ graph = graph_builder.compile()
 
 
 # 7. Execute the graph
-result = graph.invoke({"message": "Starting LangGraph"})
+result = graph.invoke({"name": "Neeraj", "message": "Starting LangGraph"})
 
 
 print("\nFinal Result:")
